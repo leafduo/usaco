@@ -1,0 +1,191 @@
+
+**********************************************************************
+                           SILVER PROBLEMS
+**********************************************************************
+                  Three problems numbered 6 through 8
+**********************************************************************
+
+Problem 6: Sand Castle [Neal Wu, 2008]
+
+Farmer John has built a sand castle! Like all good castles, the
+walls have crennelations, that nifty pattern of embrasures (gaps)
+and merlons (filled spaces); see the diagram below. The N (1 <= N
+<= 25,000) merlons of his castle wall are conveniently numbered
+1..N; merlon i has height M_i (1 <= M_i <= 100,000); his merlons
+often have varying heights, unlike so many.
+
+
+
+He wishes to modify the castle design in the following fashion: he
+has a list of numbers B_1 through B_N (1 <= B_i <= 100,000), and
+wants to change the merlon heights to those heights B_1, ..., B_N
+in some order (not necessarily the order given or any other order
+derived from the data).
+
+To do this, he has hired some bovine craftsmen to raise and lower
+the merlons' heights. Craftsmen, of course, cost a lot of money.
+In particular, they charge FJ a total X (1 <= X <= 100) money per
+unit height added and Y (1 <= Y <= 100) money per unit height
+reduced.
+
+FJ would like to know the cheapest possible cost of modifying his
+sand castle if he picks the best permutation of heights. The answer
+is guaranteed to fit within a 32-bit signed integer.
+
+Note: about 40% of the test data will have N <= 9, and about 60% will have
+N <= 18.
+
+PROBLEM NAME: sandcas
+
+INPUT FORMAT:
+
+* Line 1: Three space-separated integers: N, X, and Y
+
+* Lines 2..N+1: Line i+1 contains the two space-separated integers:
+        M_i and B_i
+
+SAMPLE INPUT (file sandcas.in):
+
+3 6 5
+3 1
+1 2
+1 2
+
+INPUT DETAILS:
+
+FJ's castle starts with heights of 3, 1, and 1. He would like to change
+them so that their heights are 1, 2, and 2, in some order. It costs 6 to
+add a unit of height and 5 to remove a unit of height.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer, the minimum cost needed to rebuild the
+        castle
+
+SAMPLE OUTPUT (file sandcas.out):
+
+11
+
+OUTPUT DETAILS:
+
+FJ reduces the first merlon's height by 1, for a cost of 5 (yielding
+merlons of heights 2, 1, and 1). He then adds one unit of height
+to the second merlon for a cost of 6 (yielding merlons of heights
+2, 2, and 1).
+
+**********************************************************************
+
+Problem 7: Cow Frisbee Team [Neal Wu, 2008]
+
+After Farmer Don took up Frisbee, Farmer John wanted to join in the
+fun. He wants to form a Frisbee team from his N cows (1 <= N <=
+2,000) conveniently numbered 1..N. The cows have been practicing
+flipping the discs around, and each cow i has a rating R_i (1 <=
+R_i <= 100,000) denoting her skill playing Frisbee. FJ can form a
+team by choosing one or more of his cows.
+
+However, because FJ needs to be very selective when forming Frisbee
+teams, he has added an additional constraint. Since his favorite
+number is F (1 <= F <= 1,000), he will only accept a team if the
+sum of the ratings of each cow in the team is exactly divisible by
+F.
+
+Help FJ find out how many different teams he can choose. Since this
+number can be very large, output the answer modulo 100,000,000.
+
+Note: about 50% of the test data will have N <= 19.
+
+PROBLEM NAME: fristeam
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and F
+
+* Lines 2..N+1: Line i+1 contains a single integer: R_i
+
+SAMPLE INPUT (file fristeam.in):
+
+4 5
+1
+2
+8
+2
+
+INPUT DETAILS:
+
+FJ has four cows whose ratings are 1, 2, 8, and 2. He will only accept a
+team whose rating sum is a multiple of 5.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer representing the number of teams FJ can
+        choose, modulo 100,000,000.
+
+SAMPLE OUTPUT (file fristeam.out):
+
+3
+
+OUTPUT DETAILS:
+
+FJ can pair the 8 and either of the 2's (8 + 2 = 10), or he can use both
+2's and the 1 (2 + 2 + 1 = 5).
+
+**********************************************************************
+
+Problem 8: Look Up [Neal Wu, 2008]
+
+Farmer John's N (1 <= N <= 100,000) cows, conveniently numbered
+1..N, are once again standing in a row. Cow i has height H_i (1 <=
+H_i <= 1,000,000).
+
+Each cow is looking to her left toward those with higher index
+numbers. We say that cow i 'looks up' to cow j if i < j and H_i <
+H_j. For each cow i, FJ would like to know the index of the first
+cow in line looked up to by cow i.
+
+Note: about 50% of the test data will have N <= 1,000.
+
+PROBLEM NAME: lookup
+
+INPUT FORMAT:
+
+* Line 1: A single integer: N
+
+* Lines 2..N+1: Line i+1 contains the single integer: H_i
+
+SAMPLE INPUT (file lookup.in):
+
+6
+3
+2
+6
+1
+1
+2
+
+INPUT DETAILS:
+
+FJ has six cows of heights 3, 2, 6, 1, 1, and 2.
+
+OUTPUT FORMAT:
+
+* Lines 1..N: Line i contains a single integer representing the
+        smallest index of a cow up to which cow i looks. If no such
+        cow exists, print 0.
+
+SAMPLE OUTPUT (file lookup.out):
+
+3
+3
+0
+6
+6
+0
+
+OUTPUT DETAILS:
+
+Cows 1 and 2 both look up to cow 3; cows 4 and 5 both look up to cow 6; and
+cows 3 and 6 do not look up to any cow.
+
+**********************************************************************
+

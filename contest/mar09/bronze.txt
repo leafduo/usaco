@@ -1,0 +1,286 @@
+**********************************************************************
+                           BRONZE PROBLEMS
+**********************************************************************
+                  Four problems numbered 11 through 14
+**********************************************************************
+
+Problem 11: Payback [Jarrah Lacko, 2009]
+
+"Never a borrower nor a lender be." O how Bessie wishes she had taken that
+advice! She has borrowed from or lent money to each of N (1 <= N <=
+100,000) friends, conveniently labeled 1..N.
+
+Payback day has finally come. She knows she is owed more money than
+she owes to the other cows. They have all lined up in a straight
+line, cow i standing i meters from the barn. Bessie is going to
+traverse the line collecting money from those who owe her and
+reimbursing money to those she owes.
+
+As she moves down the line, she can request any cow who owes her
+money to give her the money. When she has enough money to pay off
+any or all of her debts, she can pay the (recently collected) money
+to those she owes. Cow i owes Bessie D_i money (-1,000 <= D_i <=
+1,000; D_i != 0). A negative debt means that Bessie owes money to
+the cow instead of vice-versa.
+
+Bessie starts at the barn, location 0. What is the minimum distance
+she must travel to collect her money and pay all those she owes? She
+must end her travels at the end of the line.
+
+PROBLEM NAME: iou
+
+INPUT FORMAT:
+
+* Line 1: A single integer: N
+
+* Lines 2..N+1: Line i+1 contains a single integer: D_i
+
+SAMPLE INPUT (file iou.in):
+
+5
+100
+-200
+250
+-200
+200
+
+INPUT DETAILS:
+
+Three cows owe Bessie; she owes two. When she's done, Bessie will have 150
+money.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the total metric distance Bessie
+        must travel in order to collect or pay each cow.
+
+SAMPLE OUTPUT (file iou.out):
+
+9
+
+OUTPUT DETAILS:
+
+Barn  100  -200  250 -200  200
+ |     |     |    |    |    |
+ ***>**+**>*****>**+
+                   *            < Bessie has 350
+             -**<***
+             *                  < Bessie has 150
+             ***>****>****>**+
+                             *  < Bessie has 350
+                       -**<***
+                       *     
+                       ***>***  < Bessie ends her travels with 150*
+
+**********************************************************************
+
+Problem 12: Plumbing the Pond [Rob Kolstad, 2009]
+
+Bessie's drinks water from a pond in the northwest part of the farm.
+It has an interesting bottom in that it is full of little hills and
+valleys. She wonders how deep it is.
+
+She trolls across the pond in her little boat with a very old radar
+set that tends to have spurious readings. She knows the deepest
+part is relatively flat and has decided that she'll believe the
+largest depth number only if it is verified by the fact that the
+same depth appears in an adjacent reading.
+
+The pond is modeled as an R x C (1 <= R <= 50; 1 <= C <= 50) grid
+of (positive integer) depth readings D_rc (0 <= D_rc <= 1,000,000);
+some readings might be 0 -- those are not part of the pond. A depth
+reading of 10 means "depth of 10".
+
+Find the greatest depth that appears in at least two 'adjacent'
+readings (where 'adjacent' means in any of the potentially eight
+squares that border a square on each of its sides and its diagonals).
+She knows the pond has at least one pair of positive, adjacent
+readings.
+
+PROBLEM NAME: plumb
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: R and C
+
+* Lines 2..R+1: Line i+1 contains C space-separated integers that
+        represent the depth of the pond across row i: D_rc
+
+SAMPLE INPUT (file plumb.in):
+
+4 3
+0 1 0
+1 2 0
+1 5 1
+2 3 4
+
+INPUT DETAILS:
+
+The pond has 4 rows, 3 columns.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the depth of the pond determined by
+        following Bessie's rules.
+
+SAMPLE OUTPUT (file plumb.out):
+
+1
+
+OUTPUT DETAILS:
+
+Even though 5 is the deepest reading Bessie gets, and the number 2 occurs
+twice, 1 is the largest number that occurs in two adjacent cells.
+
+**********************************************************************
+
+Problem 13: The Perfect Cow [Rob Kolstad, 2009]
+
+For the 39th year in a row, Farmer John was named "Dairy Farmer of
+the Year". The Dairy Association wants him to exhibit his most
+perfect cow at the upcoming Cow Convention in Herbster, Wisconsin
+on the frigid shores of Lake Superior.
+
+FJ keeps up with scientific literature and knows that beauty is
+actually a trend toward the average rather than the existence of
+some superior trait. Thus, he wants to find his most average cow
+and share her beauty with the other Dairy Farmers during the weekend
+of revelry and partying at the convention.
+
+Happily, each of the N*N cows (2 <= N <= 99; N odd) has her beauty
+rating (1 <= R_ij <= 1,000) inscribed on a tag in her ear, just
+like in this picture.
+
+
+
+Cows aren't so good at math, so FJ lines them up into an N x N
+square. He asks them to find the median cow in each row (the median
+cow is the one whose  beauty number is bigger than or equal to half
+the cows in her group and also smaller than or equal to half the
+cows in her group -- the middle number of the group). From those N
+medians, FJ then finds the median of those numbers and brings that
+cow to the convention.
+
+Given a set of N x N cows, find the beauty index of the most perfect
+(average) cow.
+
+PROBLEM NAME: perfect
+
+INPUT FORMAT:
+
+* Line 1: A single integer: N
+
+* Lines 2..N+1: Line i+1 contains N space-separated integers that are
+        the N beauty indices for row i of the cow square
+
+SAMPLE INPUT (file perfect.in):
+
+5
+1 5 3 9 5
+2 5 3 8 1
+6 3 5 9 2
+8 8 3 3 2
+5 4 4 4 4
+
+INPUT DETAILS:
+
+N=5, so there are 25 cows. They line up in a 5 x 5 square as shown.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer that is the index of the most perfect cow
+        as described in the task.
+
+SAMPLE OUTPUT (file perfect.out):
+
+4
+
+OUTPUT DETAILS:
+
+The medians of the rows are, respectively, 5, 3, 5, 3 and 4. The
+median of those five values is 4.
+
+**********************************************************************
+
+Problem 14: Dairy Queen [Traditional, 2009]
+
+Bessie, always in need of an income, has decided to leverage her
+dairy skills by taking a part-time job at the local Dairy Queen
+restaurant. She is running a special cash register (since she has
+hooves instead of fingers and thus requires special accommodation).
+Her job is making change for customers as they make a purchase.
+
+As she was counting out 83 cents in change, she wondered: "How many
+ways can I count out 83 cents? I can use three quarters and eight
+pennies, seven dimes and three pennies, 83 pennies... there must
+be a zillion ways!"
+
+How many different ways can one make change for N (1 <= N <= 300)
+cents using coins from a set of C (1 <= C <= 8) coins of supplied
+values C_i (1 <= C_i <= 200)?  "Different" means differing counts
+of coins.
+
+Thus, 8 cents can be made, in American currency, with 1 five-cent
+piece + 3 one-cent pieces and also with 8 one-cent pieces. Using 3
+one-cent pieces + 1 five-cent piece is the same as 1 five-cent piece
++ 3 one-cent pieces, so one can create eight cents in just two
+different ways. Note that some coin systems are poor at making
+change and result in an answer of '0'.
+
+Coin values in the input file are listed in descending order from
+largest to smallest. All coin values will be distinct.
+
+HINT: Consider recursion as a solution technique.
+
+PROBLEM NAME: dq
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and C
+
+* Lines 2..C+1: Line i+1 contains a single integer: C_i
+
+SAMPLE INPUT (file dq.in):
+
+83 5
+50
+25
+10
+5
+1
+
+INPUT DETAILS:
+
+Eight-three cents; standard American coins with values 50, 25, 10, 5, and 1
+
+OUTPUT FORMAT:
+
+* Line 1: A single line with a single integer that is the number of
+        ways to create N cents of change using the supplied coins. The
+        answer is guaranteed to fit into a signed 32-bit integer.
+
+SAMPLE OUTPUT (file dq.out):
+
+159
+
+OUTPUT DETAILS:
+
+Here are 15 of the 159 ways of making 83 cents:
+0 x 50  0 x 25  0 x 10  0 x 5  83 x 1  
+0 x 50  0 x 25  0 x 10  1 x 5  78 x 1  
+0 x 50  0 x 25  0 x 10  2 x 5  73 x 1  
+0 x 50  0 x 25  0 x 10  3 x 5  68 x 1  
+0 x 50  0 x 25  0 x 10  4 x 5  63 x 1  
+0 x 50  0 x 25  0 x 10  5 x 5  58 x 1  
+0 x 50  0 x 25  0 x 10  6 x 5  53 x 1  
+0 x 50  0 x 25  0 x 10  7 x 5  48 x 1  
+0 x 50  0 x 25  0 x 10  8 x 5  43 x 1  
+0 x 50  0 x 25  0 x 10  9 x 5  38 x 1  
+0 x 50  0 x 25  0 x 10  10 x 5  33 x 1  
+0 x 50  0 x 25  0 x 10  11 x 5  28 x 1  
+0 x 50  0 x 25  0 x 10  12 x 5  23 x 1  
+0 x 50  0 x 25  0 x 10  13 x 5  18 x 1  
+0 x 50  0 x 25  0 x 10  14 x 5  13 x 1  
+
+**********************************************************************
+
